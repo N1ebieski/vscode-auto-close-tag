@@ -142,7 +142,7 @@ function getNextChar(editor: vscode.TextEditor, position: vscode.Position): stri
 }
 
 function getCloseTag(text: string, excludedTags: string[]): string {
-    let regex = /<(\/?[_a-zA-Z][a-zA-Z0-9:\-_.]*)[\S\s]*?>/g;
+    let regex = /<(\/?[_a-zA-Z][a-zA-Z0-9:\-_.]*)[\S\s]*?(?<!\/)>/g;
     let result = null;
     let stack = [];
     while ((result = regex.exec(text)) !== null) {
